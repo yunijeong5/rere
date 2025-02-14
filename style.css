@@ -16,7 +16,10 @@ header {
 	height: 3rem;
 	background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
 }
-
+.text-large {
+	font-size: 2rem;
+	font-weight: bold;
+}
 footer {
 	background-color: #333;
 	color: white;
