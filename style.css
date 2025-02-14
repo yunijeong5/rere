@@ -1,0 +1,26 @@
+body {
+	/* font-family: Arial, sans-serif; */
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-image: url("./assets/squirtle-sunglasses.webp");
+	background-size: 20%;
+	background-repeat: repeat;
+}
+header {
+	color: pink;
+	font-size: 24px;
+}
+#rainbow1 {
+	height: 3rem;
+	background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
