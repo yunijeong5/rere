@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-		<title>It's Rere's World and We Live In It</title>
+		<title>Renee is finally graduating</title>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -23,18 +23,19 @@
 		>
 
 		<h1>🎉 YOU'RE INVITED!!! 🎉</h1>
+		<img src="assets/squirtle-group.jpeg" style="width: 20rem" />
 
-		<div class="gif-container">
+		<!-- <div class="gif-container">
 			<img
 				src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"
-				style="top: 20px; left: 20px"
+				style="top: 300px; left: 20px"
 			/>
-			<img src="./assets/the-office-celebration.gif" style="top: 200px; right: 50px" />
+			<img src="./assets/the-office-celebration.gif" style="top: 400px; right: 50px" />
 			<img
 				src="https://media.giphy.com/media/l3q2Ip7FrmPE1GhPe/giphy.gif"
 				style="bottom: 50px; left: 200px"
 			/>
-		</div>
+		</div> -->
 
 		<h2>📅 WHEN: Saturday, May 17, 2025, 5:30 to 7:30pm</h2>
 		<br />
@@ -49,7 +50,7 @@
 		<br />
 		<button class="button" onclick="alert('Message Submitted! 📜')">Submit</button> -->
 
-		<button id="play-music">🎵 Play Music</button>
+		<button id="toggle-music">🎵 Play Music</button>
 		<audio id="bg-music" loop>
 			<source src="assets/blue-white-march.mp3" type="audio/mpeg" />
 		</audio>
@@ -92,10 +93,19 @@
 			startCountdown("2025-05-17T17:30:00-04:00", "countdown");
 
 			// PLAY MUSIC
-			document.getElementById("play-music").addEventListener("click", function () {
+			document.addEventListener("DOMContentLoaded", function () {
 				const audio = document.getElementById("bg-music");
-				audio.play();
-				this.style.display = "none"; // Hide button after playing
+				const button = document.getElementById("toggle-music");
+
+				button.addEventListener("click", function () {
+					if (audio.paused) {
+						audio.play();
+						button.textContent = "⏸️ Stop Music";
+					} else {
+						audio.pause();
+						button.textContent = "🎵 Play Music";
+					}
+				});
 			});
 
 			// 🌟 MOUSE TRAIL EFFECT 🌟
