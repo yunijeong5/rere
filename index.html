@@ -49,9 +49,9 @@
 		<br />
 		<button class="button" onclick="alert('Message Submitted! 📜')">Submit</button> -->
 
-		<h3>🕺 Classic 2000s Music 🎶</h3>
-		<audio autoplay loop>
-			<source src="./assets/blue-white-march.mp3" type="audio/mp3" />
+		<button id="play-music">🎵 Play Music</button>
+		<audio id="bg-music" loop>
+			<source src="assets/blue-white-march.mp3" type="audio/mpeg" />
 		</audio>
 
 		<h3>🕹 Click the Hidden Button for a Surprise 🕹</h3>
@@ -90,6 +90,13 @@
 				setInterval(updateCountdown, 1000); // Update every second
 			}
 			startCountdown("2025-05-17T17:30:00-04:00", "countdown");
+
+			// PLAY MUSIC
+			document.getElementById("play-music").addEventListener("click", function () {
+				const audio = document.getElementById("bg-music");
+				audio.play();
+				this.style.display = "none"; // Hide button after playing
+			});
 
 			// 🌟 MOUSE TRAIL EFFECT 🌟
 			document.addEventListener("mousemove", function (event) {
