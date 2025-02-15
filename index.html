@@ -1,22 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<title>It's Rere's World and We Live In It</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap"
+		/>
 		<link rel="stylesheet" href="style.css" />
 	</head>
+	<!-- <body onload="crazyAlerts()"> -->
 	<body>
-		<header id="rainbow1">
-			<strong>♡</strong>
-			♡ YOU are INVITED!! ♡
-			<strong>♡</strong>
-		</header>
-		<main>
-			<h1>Welcome!</h1>
-			<p class="text-large">Come to Rere's Graduation :D</p>
-			<img src="assets/the-office-celebration.gif" />
-		</main>
-		<footer>&copy; 2025 Rere</footer>
+		<marquee behavior="alternate" scrollamount="20"
+			>✨ WELCOME TO RENEE’s GRADUATION BASH! 🎓✨</marquee
+		>
+
+		<h1>🎉 YOU'RE INVITED!!! 🎉</h1>
+
+		<div class="gif-container">
+			<img
+				src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"
+				style="top: 20px; left: 20px"
+			/>
+			<img src="./assets/the-office-celebration.gif" style="top: 200px; right: 50px" />
+			<img
+				src="https://media.giphy.com/media/l3q2Ip7FrmPE1GhPe/giphy.gif"
+				style="bottom: 50px; left: 200px"
+			/>
+		</div>
+
+		<h2>📅 WHEN: Saturday, May 17, 2025, 5:30 to 7:30pm</h2>
+		<br />
+		<h2>🏡 WHERE: Mullins Center, UMass Amherst</h2>
+
+		<p>★ Only <span id="countdown">??</span> ★</p>
+
+		<!-- <button class="button" onclick="alert('YAY! SEE YOU THERE! 🎓')">I’m Coming! 🎊</button> -->
+
+		<!-- <h3>💖 Leave a Message in the Guestbook! 💖</h3>
+		<textarea placeholder="Type your legendary message here..."></textarea>
+		<br />
+		<button class="button" onclick="alert('Message Submitted! 📜')">Submit</button> -->
+
+		<h3>🕺 Classic 2000s Music 🎶</h3>
+		<audio autoplay loop>
+			<source src="./assets/blue-white-march.mp3" type="audio/mp3" />
+		</audio>
+
+		<h3>🕹 Click the Hidden Button for a Surprise 🕹</h3>
+		<button class="button" onclick="window.open('https://www.hampsterdance.com/', '_blank')">
+			Mystery Button
+		</button>
+
+		<script>
+			// 🎈 D-DAY CALCULATOR 🎈
+			function countdown(targetDate) {
+				const now = new Date();
+				const target = new Date(targetDate);
+				const difference = target - now;
+
+				// Convert 2 hours to milliseconds
+				const twoHoursInMs = 2 * 60 * 60 * 1000;
+
+				if (difference <= 0 && Math.abs(difference) <= twoHoursInMs) {
+					return "The graduation is ongoing!";
+				} else if (difference < 0) {
+					return "Renee is a college graduate now! Give her a kiss or something";
+				}
+
+				const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+				return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds remaining`;
+			}
+			function startCountdown(targetDate, elementId) {
+				function updateCountdown() {
+					document.getElementById(elementId).innerText = countdown(targetDate);
+				}
+				updateCountdown(); // Update immediately
+				setInterval(updateCountdown, 1000); // Update every second
+			}
+			startCountdown("2025-05-17T17:30:00-04:00", "countdown");
+
+			// 🌟 MOUSE TRAIL EFFECT 🌟
+			document.addEventListener("mousemove", function (event) {
+				let star = document.createElement("div");
+				star.style.position = "absolute";
+				star.style.left = event.pageX + "px";
+				star.style.top = event.pageY + "px";
+				star.style.width = "10px";
+				star.style.height = "10px";
+				star.style.background = "yellow";
+				star.style.borderRadius = "50%";
+				star.style.boxShadow = "0 0 10px white";
+				document.body.appendChild(star);
+				setTimeout(() => star.remove(), 300);
+			});
+		</script>
+
+		<marquee scrollamount="10">🎓 THANK YOU FOR COMING! SEE YOU THERE! 🎉</marquee>
+
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
