@@ -18,12 +18,14 @@
 	</head>
 	<!-- <body onload="crazyAlerts()"> -->
 	<body>
-		<marquee behavior="alternate" scrollamount="20"
+		<marquee class="marquee-top" behavior="alternate" scrollamount="20"
 			>✨ WELCOME TO RENEE’s GRADUATION BASH! 🎓✨</marquee
 		>
 
 		<h1 class="text-yellow">🎉 YOU'RE INVITED!!! 🎉</h1>
 		<img src="assets/squirtle-group.jpeg" style="width: 20rem" />
+		<br />
+		<br />
 
 		<!-- <div class="gif-container">
 			<img
@@ -37,7 +39,9 @@
 			/>
 		</div> -->
 
-		<h2 class="text-blue">📅 WHEN: Saturday, May 17, 2025, 5:30 to 7:30pm</h2>
+		<h2 class="text-blue">
+			📅 WHEN: <mark class="mark-rainbow">Saturday, May 17, 2025, 5:30 to 7:30pm</mark>
+		</h2>
 		<br />
 		<h2 class="text-blue">🏡 WHERE: Mullins Center, UMass Amherst</h2>
 
@@ -63,6 +67,12 @@
 		<h3>🕹 Click the Hidden Button for a Surprise 🕹</h3>
 		<!-- TODO: randomly choose one of the links that renee chose -->
 		<button class="button" onclick="openRandomURL()">Mystery Button</button>
+		<br />
+		<br />
+
+		<marquee class="marquee-bottom" scrollamount="10"
+			>BREAKING NEWS: RENEE FINALLY GRADUATED</marquee
+		>
 
 		<script>
 			// 🎈 D-DAY CALCULATOR 🎈
@@ -146,8 +156,6 @@
 				setTimeout(() => star.remove(), 300);
 			});
 		</script>
-
-		<marquee scrollamount="10">🎓 THANK YOU FOR COMING! SEE YOU THERE! 🎉</marquee>
 
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
