@@ -22,7 +22,7 @@
 			>✨ WELCOME TO RENEE’s GRADUATION BASH! 🎓✨</marquee
 		>
 
-		<h1>🎉 YOU'RE INVITED!!! 🎉</h1>
+		<h1 class="text-yellow">🎉 YOU'RE INVITED!!! 🎉</h1>
 		<img src="assets/squirtle-group.jpeg" style="width: 20rem" />
 
 		<!-- <div class="gif-container">
@@ -37,11 +37,11 @@
 			/>
 		</div> -->
 
-		<h2>📅 WHEN: Saturday, May 17, 2025, 5:30 to 7:30pm</h2>
+		<h2 class="text-blue">📅 WHEN: Saturday, May 17, 2025, 5:30 to 7:30pm</h2>
 		<br />
-		<h2>🏡 WHERE: Mullins Center, UMass Amherst</h2>
+		<h2 class="text-blue">🏡 WHERE: Mullins Center, UMass Amherst</h2>
 
-		<p>★ Only <span id="countdown">??</span> ★</p>
+		<p class="text-red">★ Only <span id="countdown">??</span> ★</p>
 
 		<!-- <button class="button" onclick="alert('YAY! SEE YOU THERE! 🎓')">I’m Coming! 🎊</button> -->
 
@@ -50,19 +50,19 @@
 		<br />
 		<button class="button" onclick="alert('Message Submitted! 📜')">Submit</button> -->
 
-		<button id="toggle-music">🎵 Play Music</button>
+		<button id="toggle-music" class="button">🎵 Play Music</button>
 		<audio id="bg-music" loop>
 			<source
 				src="assets/pomp-and-circumstances-electronic-house-dance.mp3"
 				type="audio/mpeg"
 			/>
 		</audio>
+		<br />
+		<br />
 
 		<h3>🕹 Click the Hidden Button for a Surprise 🕹</h3>
 		<!-- TODO: randomly choose one of the links that renee chose -->
-		<button class="button" onclick="window.open('https://www.hampsterdance.com/', '_blank')">
-			Mystery Button
-		</button>
+		<button class="button" onclick="openRandomURL()">Mystery Button</button>
 
 		<script>
 			// 🎈 D-DAY CALCULATOR 🎈
@@ -111,6 +111,25 @@
 					}
 				});
 			});
+
+			// GO TO A RANDOM URL
+			function openRandomURL() {
+				const urls = [
+					"http://patience-is-a-virtue.org/",
+					"https://thisissand.com/",
+					"https://findtheinvisiblecow.com/",
+					"https://play2048.co/",
+					"https://stellarium-web.org/",
+					"https://explore.org/livecams/cats/kitten-rescue-cam",
+				];
+
+				// Pick a random URL from the list
+				const randomIndex = Math.floor(Math.random() * urls.length);
+				const randomURL = urls[randomIndex];
+
+				// Open the selected URL in a new tab
+				window.open(randomURL, "_blank");
+			}
 
 			// 🌟 MOUSE TRAIL EFFECT 🌟
 			document.addEventListener("mousemove", function (event) {

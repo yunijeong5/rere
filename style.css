@@ -15,8 +15,8 @@ body {
 	padding: 0;
 	height: 100vh;
 	overflow: hidden;
-	color: yellow;
-	font-family: "Comic Sans MS", cursive;
+	/* color: yellow; */
+	font-family: "Comic Sans MS", serif;
 	text-align: center;
 }
 @keyframes bgmove {
@@ -26,6 +26,18 @@ body {
 	100% {
 		background-position: right bottom;
 	}
+}
+
+.text-yellow {
+	color: yellow;
+}
+
+.text-blue {
+	color: blue;
+}
+
+.text-red {
+	color: red;
 }
 
 /* ✨ GLITCHY TEXT EFFECTS ✨ */
