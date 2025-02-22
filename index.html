@@ -75,146 +75,145 @@
 		<marquee class="marquee-bottom" scrollamount="10"
 			>BREAKING NEWS: RENEE FINALLY GRADUATED</marquee
 		>
-
-		<script>
-			// FLY HIGH
-			const eagle = document.getElementById("eagle");
-			const shadowDropdown = document.getElementById("shadow-dropdown");
-			let speed = 1.5; // Adjust speed for smoother flight
-			let directionX = Math.random() > 0.5 ? 1 : -1;
-			let directionY = Math.random() > 0.5 ? 1 : -1;
-			let x = window.innerWidth / 2;
-			let y = window.innerHeight / 2;
-
-			// Function to change the shadow effect
-			function updateShadow() {
-				const selectedShadow = shadowDropdown.value;
-				switch (selectedShadow) {
-					case "none":
-						eagle.style.filter = "none";
-						break;
-					case "medium":
-						eagle.style.filter = "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))";
-						break;
-					case "neon":
-						eagle.style.animation = "neonGlow 2s infinite alternate";
-						break;
-				}
-			}
-
-			shadowDropdown.addEventListener("change", updateShadow);
-
-			// Change direction less frequently (every few seconds)
-			function changeDirection() {
-				directionX = Math.random() > 0.5 ? 1 : -1;
-				directionY = Math.random() > 0.5 ? 1 : -1;
-				setTimeout(changeDirection, Math.random() * 3000 + 3000); // Change every 3-6 seconds
-			}
-
-			function flyEagle() {
-				// Move position smoothly
-				x += speed * directionX;
-				y += speed * directionY;
-
-				// Boundary check (keep eagle inside window)
-				if (x <= 0 || x >= window.innerWidth - 120) directionX *= -1;
-				if (y <= 0 || y >= window.innerHeight - 100) directionY *= -1;
-
-				// Rotate the eagle based on direction
-				let angle = Math.atan2(directionY, directionX) * (180 / Math.PI);
-				eagle.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
-
-				// Apply position
-				eagle.style.left = `${x}px`;
-				eagle.style.top = `${y}px`;
-
-				requestAnimationFrame(flyEagle);
-			}
-
-			// Start flying and change direction occasionally
-			flyEagle();
-			setTimeout(changeDirection, 3000); // First change after 3 sec
-
-			// 🎈 D-DAY CALCULATOR 🎈
-			function countdown(targetDate) {
-				const now = new Date();
-				const target = new Date(targetDate);
-				const difference = target - now;
-
-				// Convert 2 hours to milliseconds
-				const twoHoursInMs = 2 * 60 * 60 * 1000;
-
-				if (difference <= 0 && Math.abs(difference) <= twoHoursInMs) {
-					return "The graduation is ongoing!";
-				} else if (difference < 0) {
-					return "Renee is a college graduate now! Give her a kiss or something";
-				}
-
-				const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-				const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-				const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-				return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds remaining`;
-			}
-			function startCountdown(targetDate, elementId) {
-				function updateCountdown() {
-					document.getElementById(elementId).innerText = countdown(targetDate);
-				}
-				updateCountdown(); // Update immediately
-				setInterval(updateCountdown, 1000); // Update every second
-			}
-			startCountdown("2025-05-17T17:30:00-04:00", "countdown");
-
-			// PLAY MUSIC
-			document.addEventListener("DOMContentLoaded", function () {
-				const audio = document.getElementById("bg-music");
-				const button = document.getElementById("toggle-music");
-
-				button.addEventListener("click", function () {
-					if (audio.paused) {
-						audio.play();
-						button.textContent = "⏸️ Stop Music";
-					} else {
-						audio.pause();
-						button.textContent = "🎵 Play Music";
-					}
-				});
-			});
-
-			// GO TO A RANDOM URL
-			function openRandomURL() {
-				const urls = [
-					"http://patience-is-a-virtue.org/",
-					"https://thisissand.com/",
-					"https://findtheinvisiblecow.com/",
-					"https://play2048.co/",
-					"https://stellarium-web.org/",
-					"https://explore.org/livecams/cats/kitten-rescue-cam",
-				];
-
-				// Pick a random URL from the list
-				const randomIndex = Math.floor(Math.random() * urls.length);
-				const randomURL = urls[randomIndex];
-
-				// Open the selected URL in a new tab
-				window.open(randomURL, "_blank");
-			}
-
-			// 🌟 MOUSE TRAIL EFFECT 🌟
-			document.addEventListener("mousemove", function (event) {
-				let star = document.createElement("div");
-				star.style.position = "absolute";
-				star.style.left = event.pageX + "px";
-				star.style.top = event.pageY + "px";
-				star.style.width = "10px";
-				star.style.height = "10px";
-				star.style.background = "yellow";
-				star.style.borderRadius = "50%";
-				star.style.boxShadow = "0 0 10px white";
-				document.body.appendChild(star);
-				setTimeout(() => star.remove(), 300);
-			});
-		</script>
 	</body>
+	<script>
+		// FLY HIGH
+		const eagle = document.getElementById("eagle");
+		const shadowDropdown = document.getElementById("shadow-dropdown");
+		let speed = 1.5; // Adjust speed for smoother flight
+		let directionX = Math.random() > 0.5 ? 1 : -1;
+		let directionY = Math.random() > 0.5 ? 1 : -1;
+		let x = window.innerWidth / 2;
+		let y = window.innerHeight / 2;
+
+		// Function to change the shadow effect
+		function updateShadow() {
+			const selectedShadow = shadowDropdown.value;
+			switch (selectedShadow) {
+				case "none":
+					eagle.style.filter = "none";
+					break;
+				case "medium":
+					eagle.style.filter = "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))";
+					break;
+				case "neon":
+					eagle.style.animation = "neonGlow 2s infinite alternate";
+					break;
+			}
+		}
+
+		shadowDropdown.addEventListener("change", updateShadow);
+
+		// Change direction less frequently (every few seconds)
+		function changeDirection() {
+			directionX = Math.random() > 0.5 ? 1 : -1;
+			directionY = Math.random() > 0.5 ? 1 : -1;
+			setTimeout(changeDirection, Math.random() * 3000 + 3000); // Change every 3-6 seconds
+		}
+
+		function flyEagle() {
+			// Move position smoothly
+			x += speed * directionX;
+			y += speed * directionY;
+
+			// Boundary check (keep eagle inside window)
+			if (x <= 0 || x >= window.innerWidth - 120) directionX *= -1;
+			if (y <= 0 || y >= window.innerHeight - 100) directionY *= -1;
+
+			// Rotate the eagle based on direction
+			let angle = Math.atan2(directionY, directionX) * (180 / Math.PI);
+			eagle.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+			// Apply position
+			eagle.style.left = `${x}px`;
+			eagle.style.top = `${y}px`;
+
+			requestAnimationFrame(flyEagle);
+		}
+
+		// Start flying and change direction occasionally
+		flyEagle();
+		setTimeout(changeDirection, 3000); // First change after 3 sec
+
+		// 🎈 D-DAY CALCULATOR 🎈
+		function countdown(targetDate) {
+			const now = new Date();
+			const target = new Date(targetDate);
+			const difference = target - now;
+
+			// Convert 2 hours to milliseconds
+			const twoHoursInMs = 2 * 60 * 60 * 1000;
+
+			if (difference <= 0 && Math.abs(difference) <= twoHoursInMs) {
+				return "The graduation is ongoing!";
+			} else if (difference < 0) {
+				return "Renee is a college graduate now! Give her a kiss or something";
+			}
+
+			const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+			return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds remaining`;
+		}
+		function startCountdown(targetDate, elementId) {
+			function updateCountdown() {
+				document.getElementById(elementId).innerText = countdown(targetDate);
+			}
+			updateCountdown(); // Update immediately
+			setInterval(updateCountdown, 1000); // Update every second
+		}
+		startCountdown("2025-05-17T17:30:00-04:00", "countdown");
+
+		// PLAY MUSIC
+		document.addEventListener("DOMContentLoaded", function () {
+			const audio = document.getElementById("bg-music");
+			const button = document.getElementById("toggle-music");
+
+			button.addEventListener("click", function () {
+				if (audio.paused) {
+					audio.play();
+					button.textContent = "⏸️ Stop Music";
+				} else {
+					audio.pause();
+					button.textContent = "🎵 Play Music";
+				}
+			});
+		});
+
+		// GO TO A RANDOM URL
+		function openRandomURL() {
+			const urls = [
+				"http://patience-is-a-virtue.org/",
+				"https://thisissand.com/",
+				"https://findtheinvisiblecow.com/",
+				"https://play2048.co/",
+				"https://stellarium-web.org/",
+				"https://explore.org/livecams/cats/kitten-rescue-cam",
+			];
+
+			// Pick a random URL from the list
+			const randomIndex = Math.floor(Math.random() * urls.length);
+			const randomURL = urls[randomIndex];
+
+			// Open the selected URL in a new tab
+			window.open(randomURL, "_blank");
+		}
+
+		// 🌟 MOUSE TRAIL EFFECT 🌟
+		document.addEventListener("mousemove", function (event) {
+			let star = document.createElement("div");
+			star.style.position = "absolute";
+			star.style.left = event.pageX + "px";
+			star.style.top = event.pageY + "px";
+			star.style.width = "10px";
+			star.style.height = "10px";
+			star.style.background = "yellow";
+			star.style.borderRadius = "50%";
+			star.style.boxShadow = "0 0 10px white";
+			document.body.appendChild(star);
+			setTimeout(() => star.remove(), 300);
+		});
+	</script>
 </html>

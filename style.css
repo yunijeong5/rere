@@ -128,15 +128,6 @@ marquee mark,
 	background: linear-gradient(to bottom, #00ff00 0%, #0099ff 100%);
 }
 
-/* 🤢 GUESTBOOK AREA 🤢 */
-textarea {
-	width: 80%;
-	height: 100px;
-	font-size: 16px;
-	background-color: lightyellow;
-	border: 5px dashed pink;
-}
-
 /* GIF PARTY */
 .gif-container img {
 	width: 150px;
