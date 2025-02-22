@@ -6,12 +6,6 @@
 		<title>Renee is finally graduating</title>
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap"
 		/>
 		<link rel="stylesheet" href="style.css" />
@@ -19,13 +13,14 @@
 	<!-- <body onload="crazyAlerts()"> -->
 	<body>
 		<marquee class="marquee-top" behavior="alternate" scrollamount="20"
-			>✨ WELCOME TO RENEE’s GRADUATION BASH! 🎓✨</marquee
+			>✨ WELCOME TO RENEE's GRADUATION BASH! 🎓✨</marquee
 		>
 
 		<h1 class="text-yellow">🎉 YOU'RE INVITED!!! 🎉</h1>
 		<img src="assets/squirtle-group.jpeg" style="width: 20rem" />
 		<br />
 		<br />
+		<img id="eagle" src="./assets/majestic-bald-eagle-soaring-majestically.webp" />
 
 		<!-- <div class="gif-container">
 			<img
@@ -65,8 +60,15 @@
 		<br />
 
 		<h3>🕹 Click the Hidden Button for a Surprise 🕹</h3>
-		<!-- TODO: randomly choose one of the links that renee chose -->
 		<button class="button" onclick="openRandomURL()">Mystery Button</button>
+		<!-- <br /> -->
+		<p style="font-size: 5rem">🦅</p>
+		<!-- <br /> -->
+		<select id="shadow-dropdown">
+			<option value="none">No Shadow</option>
+			<option value="medium">Medium Shadow</option>
+			<option value="neon">Superpower</option>
+		</select>
 		<br />
 		<br />
 
@@ -75,6 +77,64 @@
 		>
 
 		<script>
+			// FLY HIGH
+			const eagle = document.getElementById("eagle");
+			const shadowDropdown = document.getElementById("shadow-dropdown");
+			let speed = 1.5; // Adjust speed for smoother flight
+			let directionX = Math.random() > 0.5 ? 1 : -1;
+			let directionY = Math.random() > 0.5 ? 1 : -1;
+			let x = window.innerWidth / 2;
+			let y = window.innerHeight / 2;
+
+			// Function to change the shadow effect
+			function updateShadow() {
+				const selectedShadow = shadowDropdown.value;
+				switch (selectedShadow) {
+					case "none":
+						eagle.style.filter = "none";
+						break;
+					case "medium":
+						eagle.style.filter = "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))";
+						break;
+					case "neon":
+						eagle.style.animation = "neonGlow 2s infinite alternate";
+						break;
+				}
+			}
+
+			shadowDropdown.addEventListener("change", updateShadow);
+
+			// Change direction less frequently (every few seconds)
+			function changeDirection() {
+				directionX = Math.random() > 0.5 ? 1 : -1;
+				directionY = Math.random() > 0.5 ? 1 : -1;
+				setTimeout(changeDirection, Math.random() * 3000 + 3000); // Change every 3-6 seconds
+			}
+
+			function flyEagle() {
+				// Move position smoothly
+				x += speed * directionX;
+				y += speed * directionY;
+
+				// Boundary check (keep eagle inside window)
+				if (x <= 0 || x >= window.innerWidth - 120) directionX *= -1;
+				if (y <= 0 || y >= window.innerHeight - 100) directionY *= -1;
+
+				// Rotate the eagle based on direction
+				let angle = Math.atan2(directionY, directionX) * (180 / Math.PI);
+				eagle.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+				// Apply position
+				eagle.style.left = `${x}px`;
+				eagle.style.top = `${y}px`;
+
+				requestAnimationFrame(flyEagle);
+			}
+
+			// Start flying and change direction occasionally
+			flyEagle();
+			setTimeout(changeDirection, 3000); // First change after 3 sec
+
 			// 🎈 D-DAY CALCULATOR 🎈
 			function countdown(targetDate) {
 				const now = new Date();
@@ -156,21 +216,5 @@
 				setTimeout(() => star.remove(), 300);
 			});
 		</script>
-
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"
-		></script>
 	</body>
 </html>
